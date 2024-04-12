@@ -1,0 +1,14 @@
+{
+    "name": "My Python and NodeJS Environment",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11-bullseye",
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "dbaeumer.vscode-eslint"
+    ],
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "forwardPorts": [3000],
+    "remoteUser": "vscode"
+}
