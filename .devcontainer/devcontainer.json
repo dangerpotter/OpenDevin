@@ -1,18 +1,29 @@
 {
-    "name": "My Dev Environment with Docker, Python, and NodeJS",
+    "name": "My Dev Environment for OpenDevin",
     "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
-    "settings": {},
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
+        "node.path": "/usr/local/bin/node",
+        "editor.formatOnSave": true
+    },
     "features": {
-        "docker-in-docker": "latest"
+        "docker-in-docker": "latest",
+        "node": "18.17.1",
+        "python": "3.11"
     },
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
-                "dbaeumer.vscode-eslint"
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode"
             ]
         }
     },
-    "postCreateCommand": "bash .devcontainer/setup.sh"
+    "postCreateCommand": "bash .devcontainer/setup.sh && poetry install && make build"
 }
 
